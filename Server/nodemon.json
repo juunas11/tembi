@@ -1,0 +1,7 @@
+{
+	"verbose": false,
+	"ignore": ["test/*", ".svn"],
+	"env": {
+	    "NODE_ENV": "development"
+	}
+}

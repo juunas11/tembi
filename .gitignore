@@ -1,0 +1,12 @@
+UI/.build/**
+UI/.settings/**
+.project
+.rds_delta
+.sdk_delta.info
+*.wgt
+**/.svn/**
+**/node_modules/**
+Server/.settings/**
+Server/config/email.js
+Server/ssl/**
+npm-debug.log

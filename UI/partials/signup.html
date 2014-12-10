@@ -1,0 +1,83 @@
+<div ui-content-for="title">
+	<span>Create Account</span>
+</div>
+
+<div class="scrollable">
+	<div class="scrollable-content">
+		<form name="signupForm" role="form" ng-submit="submitSignup()" novalidate>
+			<div class="form-group">
+				<label>First name</label>
+				<input class="form-control" type="text" name="firstName" data-ng-model="userdata.firstName" required>
+				<div ng-show="formSubmitted" ng-messages="signupForm.firstName.$error">
+					<div ng-message="required" class="alert alert-warning">
+						Input your first name
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>Last name</label>
+				<input class="form-control" type="text" name="lastName" ng-model="userdata.lastName" required>
+				<div ng-show="formSubmitted" ng-messages="signupForm.lastName.$error">
+					<div ng-message="required" class="alert alert-warning">
+						Input your last name
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>Email</label>
+				<input class="form-control" type="text" name="email" ng-model="userdata.email" ng-pattern="'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'" required>
+				<div ng-show="formSubmitted" ng-messages="signupForm.email.$error">
+					<div ng-message="required" class="alert alert-warning">
+						Input an email
+					</div>
+					<div ng-message="pattern" class="alert alert-warning">
+						Input a valid email
+					</div>
+				</div>
+				<div class="alert alert-warning" ng-show="err.email_taken">
+					This email is already registered
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>Email again for verification</label>
+				<input class="form-control" type="text" name="email2" data-ng-model="userdata.email2" match="userdata.email" required>
+				<div ng-show="formSubmitted" ng-messages="signupForm.email2.$error">
+					<div ng-message="required" class="alert alert-warning">
+						Input your email again
+					</div>
+					<div ng-message="match" class="alert alert-warning">
+						Emails don't match
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>Password</label>
+				<input class="form-control" type="password" name="password" ng-model="userdata.password" required>
+				<div ng-show="formSubmitted" ng-messages="signupForm.password.$error">
+					<div ng-message="required" class="alert alert-warning">
+						Input your password
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label>Password again for verification</label>
+				<input class="form-control" type="password" name="password2" ng-model="userdata.password2" match="userdata.password" required>
+				<div ng-show="formSubmitted" ng-messages="signupForm.password2.$error">
+					<div ng-message="required" class="alert alert-warning">
+						Input your password again
+					</div>
+					<div ng-message="match" class="alert alert-warning">
+						Passwords don't match
+					</div>
+				</div>
+			</div>
+
+			<button class="btn btn-primary" type="submit">Submit</button>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<ng-include src="'partials/menubutton.html'"></ng-include>
+<div ui-content-for="title">
+	<span>Invite your friends!</span>
+</div>
+
+<form name="inviteForm" role="form" novalidate>
+	<div class="form-group">
+		<label>Email</label>
+		<input class="form-control" type="text" name="email" ng-model="data.email" placeholder="Your friend's email" ng-pattern="'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'" required>
+		<div ng-show="formSubmitted" ng-messages="inviteForm.email.$error">
+			<div ng-message="required" class="alert alert-warning">
+				Input an email
+			</div>
+			<div ng-message="pattern" class="alert alert-warning">
+				Input a valid email
+			</div>
+		</div>
+		<div class="alert alert-warning" ng-show="err.user_has_workspace">
+			This user has already joined TMB and cannot be invited
+		</div>
+	</div>
+	<div class="alert alert-success" ng-show="data.inviteSent">The invitation has been sent!</div>
+	<div class="text-center">
+		<button class="btn btn-primary" ng-click="inviteUser()">Send invite</button>
+	</div>
+</form>

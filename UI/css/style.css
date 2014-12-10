@@ -1,0 +1,131 @@
+#myDialog {
+     visibility: hidden;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:100%;
+     height:100%;
+     z-index: 1;     
+}
+
+#myDialog  div {
+     width:300px;
+     margin: 100px auto;     
+     border:1px solid #000;
+     padding:15px;
+     background-color: #FFF; opacity: 1;
+}
+
+.over {
+  border: 2px dashed #000;
+}
+
+.WorkspaceCreated:before
+{
+	font-family: "Glyphicon Halflings";
+  	content: "\270f";
+}
+
+.CreateTask:before
+{
+	font-family: "Glyphicon Halflings";
+  	content: "\002B";
+}
+
+.DeleteTask:before
+{
+	font-family: "Glyphicon Halflings";
+  	content: "\2212";
+}
+
+.UpdateTask:before
+{
+	font-family: "Glyphicon Halflings";
+  	content: "\2215";
+}
+
+.tmb-list {
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.app-content{
+  background-color: white;
+}
+
+.modal {
+  display: block;
+}
+
+.assigned-users {
+  font-size: x-small;
+  font-style: italic;
+}
+
+.task-block {
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-right: 4px;
+  margin-left: 4px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+
+  word-wrap: break-word;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.modal-body {
+  word-wrap: break-word;
+}
+
+.dragged {
+  z-index: 9999;
+  position: relative;
+  background-color: #FFFFFF;
+  opacity: 0.8;
+}
+
+.colliding {
+  background-color: #8888FF;
+  opacity: 0.6;
+  color: #EEEEEE;
+}
+
+.drag-hover {
+  background-color: #2222CC !important;
+  color: #EEEEEE !important;
+}
+
+.user-info-block {
+  position:fixed;
+  text-align: left;
+  bottom: 0;
+  min-height: 30px;
+  width: 100%;
+  color: white;
+  padding: 10px;
+  font-size: large;
+  word-wrap: break-word;
+}
+
+.user-info-block > p {
+  margin: 0px;
+}
+
+.user-info-block > .name {
+  font-weight: bold;
+}
+
+.activity-list {
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.activity-time {
+  font-size: x-small;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/TaskManagementBoard1" version="1.0.0" viewmodes="maximized">
+    <access origin="http://210.107.197.26:8084" subdomains="false"/>
+    <access origin="http://210.107.198.180:8084" subdomains="false"/>
+    <access origin="http://210.107.198.175:8084" subdomains="false"/>
+    <access origin="http://210.107.198.21:8084" subdomains="false"/>
+    <access origin="https://210.107.197.26:8086" subdomains="false"/>
+    <access origin="https://210.107.198.180:8086" subdomains="false"/>
+    <access origin="https://210.107.198.175:8086" subdomains="false"/>
+    <access origin="https://210.107.198.21:8086" subdomains="false"/>
+    <tizen:application id="MycwIS8ZYD.TaskManagementBoard1" package="MycwIS8ZYD" required_version="2.2"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    <icon src="icon.png"/>
+    <name>TEMBI</name>
+</widget>

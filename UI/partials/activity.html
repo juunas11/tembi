@@ -1,0 +1,20 @@
+<ng-include src="'partials/menubutton.html'"></ng-include>
+<div ui-content-for="title">
+	<span>Workspace Activity</span>
+</div>
+
+<div class="scrollable">
+	<div class="scrollable-content">
+		<div class="tmb-list panel">
+			<div class="panel-body"> 
+					<div data-ng-repeat="event in activity | orderBy:'dateTime':true" class="activity-list">
+						<b>{{event.user.firstName + ' ' + event.user.lastName}}</b>&nbsp;{{event.type}}&nbsp;{{event.text}}
+						<br>
+						<span class="activity-time">
+							{{event.dateTime | date:'yy/MM/dd HH:mm'}}
+						</span>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

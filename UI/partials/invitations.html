@@ -1,0 +1,22 @@
+<div ui-content-for="title">
+	<span>Invitations</span>
+</div>
+<form>
+	<p>You have been invited to collaborate by the following people!</p>
+	<p>Choose and accept the invitation, or reject them and create your own workspace!</p>
+
+	<div class="form-group">
+		<h4>Inviter</h4>
+		<div class="radio" ng-repeat="invite in data.invitations">
+			<label>
+			<input type="radio" name="selectedInvite" ng-model=$parent.data.selectedInvite ng-value="invite._id">
+				{{invite.sender.firstName + ' ' + invite.sender.lastName}}
+			</label>
+		</div>
+	</div>
+	
+	<div class="text-center">
+		<button ng-disabled="!data.selectedInvite" class="btn btn-primary" ng-click="acceptInvitation()">Join</button>
+		<button class="btn btn-warning" ng-click="rejectInvitations()">Reject</button>
+	</div>
+</form>

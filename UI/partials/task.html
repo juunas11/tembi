@@ -1,0 +1,30 @@
+<ng-include src="'partials/menubutton.html'"></ng-include>
+<div ui-content-for="title">
+	<span>Update task</span>
+</div>
+
+<div class="panel">
+	<div class="panel-body">
+		<form class="form">
+			<div class="form-group">
+				
+			<h4>Task text</h4>
+				<textarea class="form-control" name="text" id="text"  rows="2" ng-model="task.text">
+				</textarea>
+			</div>
+
+			<div class="form-group">
+				<h4>Assigned users</h4>
+				<div class="checkbox" ng-repeat="user in data.users">
+					<label>
+						<input type="checkbox" ng-model="data.selectedUsers[user._id]" name="users" id="{{user._id}}">
+						{{user.firstName + ' ' + user.lastName}}
+					</label>
+				</div>
+			</div>
+			<button class="btn btn-primary" ng-click="update(task._id)">Save</button>
+			<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+		</form>
+		
+	</div>
+</div>

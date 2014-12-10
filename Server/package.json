@@ -1,0 +1,36 @@
+{
+  "name": "TMBServer",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./app.js",
+    "test": "./node_modules/.bin/mocha"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "body-parser": "~1.8.1",
+    "cookie-parser": "~1.3.3",
+    "debug": "~2.0.0",
+    "express": "~4.9.0",
+    "express-session": "~1.0.0",
+    "jade": "~1.6.0",
+    "mongoose": "~3.8.17",
+    "morgan": "~1.3.0",
+    "nodemailer": "^1.3.0",
+    "nodemailer-smtp-transport": "^0.1.13",
+    "passport": "~0.2.1",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "~2.1.3"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-test": "^0.12.1",
+    "grunt-notify": "^0.3.1",
+    "mocha": "^1.21.5",
+    "supertest": "^0.14.0",
+    "time-grunt": "^1.0.0"
+  }
+}

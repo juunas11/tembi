@@ -1,0 +1,66 @@
+<div ui-content-for="title">
+	<span>Forgot password</span>
+</div>
+
+<div class="scrollable">
+	<div class="scrollable-content">
+		<form ng-submit="requestCode()" name="emailForm" novalidate>
+			<div class="form-group">
+				<label>Email</label>
+				<input class="form-control" type="text" name="email" ng-model="userdata.email" placeholder="The email you registered with" ng-pattern="'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'" required>
+				<div ng-show="emailFormSubmitted" ng-messages="emailForm.email.$error">
+					<div ng-message="required" class="alert alert-warning">
+						Input an email
+					</div>
+					<div ng-message="pattern" class="alert alert-warning">
+						Check the email address, it is invalid
+					</div>
+				</div>
+			</div>
+			<button class="btn btn-primary" type="submit">Request authentication code</button>
+		</form>
+
+		<div ng-show="authCodeRequested">
+			<p>You should receive an email containing a code within a couple minutes. Check your spam folder as well.</p>
+			<form role="form" ng-submit="changePassword()" name="passwordForm" novalidate>
+				<div class="form-group">
+					<label>Code (make sure it is correct, there is only one try)</label>
+					<input class="form-control" name="authcode" type="text" ng-model="userdata.authcode" placeholder="Input received code here" required>
+					<div ng-show="pwFormSubmitted" ng-messages="passwordForm.authcode.$error">
+						<div ng-message="required" class="alert alert-warning">
+							Input the authentication code
+						</div>
+					</div>
+					<div ng-show="err.codeInvalid" class="alert alert-danger">
+						Code is not accepted, check the email address and request a new token
+					</div>
+				</div>
+				<div class="form-group">
+					<label>New password</label>
+					<input class="form-control" name="password" ng-model="userdata.password" type="password" required>
+					<div ng-show="pwFormSubmitted" ng-messages="passwordForm.password.$error">
+						<div ng-message="required" class="alert alert-warning">
+							Input a new password
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Repeat new password</label>
+					<input class="form-control" name="password2" ng-model="userdata.password2" type="password" match="userdata.password" required>
+					<div ng-show="pwFormSubmitted" ng-messages="passwordForm.password2.$error">
+						<div ng-message="required" class="alert alert-warning">
+							Input new password again
+						</div>
+						<div ng-message="match" class="alert alert-warning">
+							Passwords don't match
+						</div>
+					</div>
+				</div>
+				<button class="btn btn-primary" type="submit">Request change</button>
+				<p>You will be automatically redirected back to the login on success</p>
+			</form>
+		</div>
+	</div>
+</div>
+
+

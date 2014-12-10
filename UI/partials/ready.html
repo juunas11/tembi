@@ -1,0 +1,109 @@
+<div ui-content-for="title">
+  <span>{{pageState}}</span>
+</div>
+<ng-include src="'partials/menubutton.html'"></ng-include>
+<input type="hidden" id="currentItem"/>	
+<input id="pageState" type="hidden" value="{{pageState}}" />
+
+<div class="scrollable">
+	<div class="scrollable-header">
+		<table style="width:100%;">
+			<tr>
+				<td style="width:70%">
+					<textarea class="form-control" id="task" placeholder="Your task details" data-ng-model="userdata.task" style="width:100%"></textarea>
+				</td>
+				<td style="width:17%">
+					<button class="btn btn-default" ui-turn-on="assignmentModal">Assign</button>
+				</td>
+				<td style="width:13%" align="center">
+					<button class="btn btn-primary" ng-click="addTask()" click-clear-text-box="task">Save</button>
+				</td>
+			<tr>
+		</table>
+	</div>
+	<div id="tasks" class="scrollable-content tmb-list">
+		<div ng-attr-id="{{ task._id }}"
+			class="task-block"
+			ng-repeat="task in workspace.tasks"
+			ng-if="task.state === pageState"
+			my-draggable
+			redirect-to='#/task/{{task._id}}'
+			ng-swipe-left="swipeLeft(task)">
+				{{task.text}}<br />
+				<small class="assigned-users">
+					<span ng-if="workspaceUsers" ng-repeat="user in task.assignedUsers">
+						{{findUserById(user).firstName}}<span ng-if="!$last">,&nbsp;</span>
+					</span>
+				</small>
+		</div>
+	</div>
+</div>
+
+
+<div ui-content-for="footer">
+	<div class="navbar navbar-app navbar-absolute-bottom">
+		<table width="100%">
+			<tr>
+			<td style="width:33%">
+				<button class="status btn btn-primary" ng-model="radioModel" style="width:100%"
+				id="ready" value="Ready" data-ng-click="viewWorkspace('Ready')">
+				ready
+				</button>
+			</td>
+			<td style="width:33%">
+				<button class="status btn btn-primary" ng-model="radioModel" style="width:100%"
+				id="inProgress" value="In Progress" data-ng-click="viewWorkspace('In Progress')">
+				in progress
+				</button>
+			</td>
+			<td style="width:33%">
+				<button class="status btn btn-primary" ng-model="radioModel" style="width:100%"
+				id="done" value="Done" data-ng-click="viewWorkspace('Done')">
+				done
+				</button>
+			</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="modal" ui-if='assignmentModal' ui-state='assignmentModal'>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" ui-turn-off="assignmentModal">&times;</button>
+				<h4 class="modal-title">Assign task</h4>
+
+			</div>
+			<div class="modal-body">
+				<div class="checkbox" ng-repeat="user in workspaceUsers">
+					<label>
+						<input type="checkbox" ng-model="data.selectedUsers[user._id]" name="users" id="{{user._id}}">
+						{{user.firstName + ' ' + user.lastName}}
+					</label>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button ui-turn-off="assignmentModal" class="btn btn-primary">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" ui-if="deleteModal" ui-state="deleteModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" ui-turn-off="deleteModal">&times;</button>
+				<h4 class="modal-title">Delete</h4>
+			</div>
+			<div class="modal-body">
+				Are you sure you want to delete &quot;{{data.taskToDelete.text}}&quot;?
+			</div>
+			<div class="modal-footer">
+				<button ui-turn-off="deleteModal" class="btn btn-default">Cancel</button>
+				<button ng-click="deleteTask()" class="btn btn-danger">Delete</button>
+			</div>
+		</div>
+	</div>
+</div>
