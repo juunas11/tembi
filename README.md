@@ -5,3 +5,4 @@ TEMBI, Task Management Board application allows users to manage tasks. They can 
 And TEMBI is built using the Tizen Web Application framework.
 
 Demo: http://www.youtube.com/watch?v=mlUitPyOPcc&feature=youtu.be
+Project Document: https://docs.google.com/document/d/1DtEE-z9-9UvSzKfLyHGkQ8uMtIJ62xMSz2Ek_eq44RQ/edit?usp=sharing
