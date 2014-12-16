@@ -7,3 +7,5 @@ And TEMBI is built using the Tizen Web Application framework.
 Demo: http://www.youtube.com/watch?v=mlUitPyOPcc
 
 Project Document: [Document on Google Drive](https://docs.google.com/document/d/1DtEE-z9-9UvSzKfLyHGkQ8uMtIJ62xMSz2Ek_eq44RQ/edit?usp=sharing)
+
+[Development environment setup guide](https://github.com/juunas11/tembi/wiki/Getting-started)
